@@ -22,7 +22,6 @@ std::vector<int> day_5_read_file(const std::string& path)
 	// Close file and return
 	file.close();
 	return data;
-
 }
 
 void parse(std::vector<int> intcode)
