@@ -1,4 +1,5 @@
 #include "pch.h"
+#pragma warning (disable : 26451)
 
 // Read file and return contents in an int vector
 std::vector<int> day_5_read_file(const std::string& path)
@@ -27,25 +28,17 @@ std::vector<int> day_5_read_file(const std::string& path)
 void parse(std::vector<int> intcode)
 {
 	// Parse intcode
-	for (unsigned int i = 0; intcode[i] != 99; )
+	for (int i = 0; intcode[i] != 99; )
 	{
-		// Get parameters from opcode
+		// Get opcode, operation, and the mode for each parameter
 		std::string opcode = std::to_string(intcode[i]);
 		opcode.insert(0, 5 - opcode.length(), '0');
 
 		int operation = std::stoi(opcode.substr(3, 2));
+
 		int parameter_1_mode = opcode[2] - int('0');
 		int parameter_2_mode = opcode[1] - int('0');
 		int parameter_3_mode = opcode[0] - int('0');
-
-		// Get parameter positions and arguments
-		// Does not respect operation length
-		int parameter_1_pos = i + 1;
-		int parameter_2_pos = i + 2;
-		int parameter_3_pos = i + 3;
-
-		int argument_1 = (parameter_1_mode == 1) ? intcode[parameter_1_pos] : intcode[intcode[parameter_1_pos]];
-		int argument_2 = (parameter_2_mode == 1) ? intcode[parameter_2_pos] : intcode[intcode[parameter_2_pos]];
 
 		// Handle opcodes
 		switch (operation)
@@ -53,7 +46,9 @@ void parse(std::vector<int> intcode)
 			// Add
 			case 1:
 			{
-				intcode[intcode[parameter_3_pos]] = argument_1 + argument_2;
+				int argument_1 = (parameter_1_mode == 1) ? intcode[i + 1] : intcode[intcode[i + 1]];
+				int argument_2 = (parameter_2_mode == 1) ? intcode[i + 2] : intcode[intcode[i + 2]];
+				intcode[intcode[i + 3]] = argument_1 + argument_2;
 				i += 4;
 				break;
 			}
@@ -61,11 +56,13 @@ void parse(std::vector<int> intcode)
 			// Multiply
 			case 2:
 			{
-				intcode[intcode[parameter_3_pos]] = argument_1 * argument_2;
+				int argument_1 = (parameter_1_mode == 1) ? intcode[i + 1] : intcode[intcode[i + 1]];
+				int argument_2 = (parameter_2_mode == 1) ? intcode[i + 2] : intcode[intcode[i + 2]];
+				intcode[intcode[i + 3]] = argument_1 * argument_2;
 				i += 4;
 				break;
 			}
-			
+
 			// Input
 			case 3:
 			{
@@ -74,7 +71,7 @@ void parse(std::vector<int> intcode)
 				std::cin >> input;
 				std::cout << '\n';
 
-				intcode[intcode[parameter_1_pos]] = input;
+				intcode[intcode[i + 1]] = input;
 				i += 2;
 				break;
 			}
@@ -82,7 +79,7 @@ void parse(std::vector<int> intcode)
 			// Output
 			case 4:
 			{
-				std::cout << "Value at position " << intcode[parameter_1_pos] << ": " << std::to_string(intcode[intcode[parameter_1_pos]]) << '\n';
+				std::cout << "Value at position " << intcode[i + 1] << ": " << std::to_string(intcode[intcode[i + 1]]) << '\n';
 				i += 2;
 				break;
 			}
@@ -90,6 +87,8 @@ void parse(std::vector<int> intcode)
 			// Jump if true
 			case 5:
 			{
+				int argument_1 = (parameter_1_mode == 1) ? intcode[i + 1] : intcode[intcode[i + 1]];
+				int argument_2 = (parameter_2_mode == 1) ? intcode[i + 2] : intcode[intcode[i + 2]];
 				i = (argument_1 != 0) ? i = argument_2 : i + 3;
 				break;
 			}
@@ -97,6 +96,8 @@ void parse(std::vector<int> intcode)
 			// Jump if false
 			case 6:
 			{
+				int argument_1 = (parameter_1_mode == 1) ? intcode[i + 1] : intcode[intcode[i + 1]];
+				int argument_2 = (parameter_2_mode == 1) ? intcode[i + 2] : intcode[intcode[i + 2]];
 				i = (argument_1 == 0) ? i = argument_2 : i + 3;
 				break;
 			}
@@ -104,7 +105,9 @@ void parse(std::vector<int> intcode)
 			// Less than
 			case 7:
 			{
-				intcode[intcode[parameter_3_pos]] = (argument_1 < argument_2) ? 1 : 0;
+				int argument_1 = (parameter_1_mode == 1) ? intcode[i + 1] : intcode[intcode[i + 1]];
+				int argument_2 = (parameter_2_mode == 1) ? intcode[i + 2] : intcode[intcode[i + 2]];
+				intcode[intcode[i + 3]] = (argument_1 < argument_2) ? 1 : 0;
 				i += 4;
 				break;
 			}
@@ -112,7 +115,9 @@ void parse(std::vector<int> intcode)
 			// Equals
 			case 8:
 			{
-				intcode[intcode[parameter_3_pos]] = (argument_1 == argument_2) ? 1 : 0;
+				int argument_1 = (parameter_1_mode == 1) ? intcode[i + 1] : intcode[intcode[i + 1]];
+				int argument_2 = (parameter_2_mode == 1) ? intcode[i + 2] : intcode[intcode[i + 2]];
+				intcode[intcode[i + 3]] = (argument_1 == argument_2) ? 1 : 0;
 				i += 4;
 				break;
 			}
