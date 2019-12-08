@@ -67,30 +67,25 @@ void day_8()
 	// Part 2
 	std::cout << "Part 2:\n";
 
-	// Calculate output layer
-	std::vector<int> output_layer;
+	// Print output layer
 	for (int i = 0; i < resolution; ++i)
 	{
+		int pixel = 0;
 		for (const std::vector<int>& layer : layers)
 		{
-			int current_pixel = layer[i];
-			if (current_pixel != 2)
+			int final_pixel = layer[i];
+			if (final_pixel != 2)
 			{
-				output_layer.push_back(current_pixel);
+				pixel = final_pixel;
 				break;
 			}
 		}
-	}
 
-	// Print layer
-	for (int i = 0; i < resolution; ++i)
-	{
-		// White
-		if (output_layer[i] == 1)
+		// Print character
+		if (pixel == 1)
 		{
 			std::cout << '#';
 		}
-		// Black
 		else
 		{
 			std::cout << ' ';
