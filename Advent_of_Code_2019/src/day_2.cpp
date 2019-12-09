@@ -1,4 +1,5 @@
 #include "pch.h"
+#pragma warning (disable : 26451)
 
 std::vector<int> day_2_read_file(const std::string& path)
 {

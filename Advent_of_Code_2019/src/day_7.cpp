@@ -1,4 +1,5 @@
 #include "pch.h"
+#pragma warning (disable : 26451)
 
 class Amplifier
 {

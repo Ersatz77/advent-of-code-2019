@@ -159,6 +159,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\day_1.cpp" />
+    <ClCompile Include="src\day_10.cpp" />
     <ClCompile Include="src\day_2.cpp" />
     <ClCompile Include="src\day_3.cpp" />
     <ClCompile Include="src\day_4.cpp" />
@@ -174,9 +175,16 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\utility\intcode.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\utility\intcode.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="src\inputs\day_1.txt" />
@@ -187,6 +195,7 @@
     <Text Include="src\inputs\day_6.txt" />
     <Text Include="src\inputs\day_7.txt" />
     <Text Include="src\inputs\day_8.txt" />
+    <Text Include="src\inputs\day_9.txt" />
     <Text Include="src\inputs\test.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -48,9 +48,18 @@
     <ClCompile Include="src\day_9.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\day_10.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utility\intcode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utility\intcode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -64,5 +73,6 @@
     <Text Include="src\inputs\day_6.txt" />
     <Text Include="src\inputs\day_7.txt" />
     <Text Include="src\inputs\day_8.txt" />
+    <Text Include="src\inputs\day_9.txt" />
   </ItemGroup>
 </Project>
