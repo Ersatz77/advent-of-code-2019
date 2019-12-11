@@ -4,8 +4,12 @@
 #include <fstream>
 #include <string>
 #include <vector>
-#include <unordered_set>
+#include <utility>
+#include <map>
 #include <algorithm>
 #include <numeric>
 #include <climits>
 #include <stdexcept>
+
+#define _USE_MATH_DEFINES
+#include <math.h>

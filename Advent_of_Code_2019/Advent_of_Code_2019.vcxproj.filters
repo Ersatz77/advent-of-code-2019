@@ -54,6 +54,12 @@
     <ClCompile Include="src\utility\intcode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\day_11.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\day_12.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\pch.h">
@@ -74,5 +80,7 @@
     <Text Include="src\inputs\day_7.txt" />
     <Text Include="src\inputs\day_8.txt" />
     <Text Include="src\inputs\day_9.txt" />
+    <Text Include="src\inputs\day_10.txt" />
+    <Text Include="src\inputs\day_11.txt" />
   </ItemGroup>
 </Project>

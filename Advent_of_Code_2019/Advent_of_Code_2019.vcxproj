@@ -160,6 +160,8 @@
   <ItemGroup>
     <ClCompile Include="src\day_1.cpp" />
     <ClCompile Include="src\day_10.cpp" />
+    <ClCompile Include="src\day_11.cpp" />
+    <ClCompile Include="src\day_12.cpp" />
     <ClCompile Include="src\day_2.cpp" />
     <ClCompile Include="src\day_3.cpp" />
     <ClCompile Include="src\day_4.cpp" />
@@ -188,6 +190,8 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="src\inputs\day_1.txt" />
+    <Text Include="src\inputs\day_10.txt" />
+    <Text Include="src\inputs\day_11.txt" />
     <Text Include="src\inputs\day_2.txt" />
     <Text Include="src\inputs\day_3_1.txt" />
     <Text Include="src\inputs\day_3_2.txt" />

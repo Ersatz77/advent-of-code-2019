@@ -5,7 +5,7 @@ class Amplifier
 {
 public:
 	// Constructor
-	Amplifier(const std::vector<int> program, const int& phase):
+	Amplifier(const std::vector<int>& program, const int& phase):
 		intcode(program),
 		phase_setting(phase),
 		i(0),
