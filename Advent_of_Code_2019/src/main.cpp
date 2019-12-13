@@ -12,6 +12,7 @@ void day_9();
 void day_10();
 void day_11();
 void day_12();
+void day_13();
 
 int main()
 {
@@ -28,7 +29,8 @@ int main()
 		//day_9();
 		//day_10();
 		//day_11();
-		day_12();
+		//day_12();
+		day_13();
 	}
 	catch (const std::exception & e)
 	{
